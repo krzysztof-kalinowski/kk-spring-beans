@@ -1,8 +1,7 @@
 package kalinowski.krzysztof.kkspringbeans.configuration;
 
-import kalinowski.krzysztof.kkspringbeans.service.CarService;
-import kalinowski.krzysztof.kkspringbeans.service.PlaneService;
-import kalinowski.krzysztof.kkspringbeans.service.VehicleService;
+import kalinowski.krzysztof.kkspringbeans.service.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -21,4 +20,17 @@ public class MainConfiguration {
     VehicleService planeServiceConfiguration() {
         return new PlaneService();
     }
+
+    @Bean
+    @Qualifier("bikeServiceConfiguration")
+    VehicleService bikeServiceConfiguration() {
+        return new BikeService();
+    }
+
+    @Bean
+    @Qualifier("boatServiceConfiguration")
+    VehicleService boatServiceConfiguration() {
+        return new BoatService();
+    }
+
 }
