@@ -2,12 +2,13 @@ package kalinowski.krzysztof.kkspringbeans.configuration;
 
 import kalinowski.krzysztof.kkspringbeans.service.*;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-public class MainConfiguration {
+public class BeansConfiguration {
 
 
     @Bean
@@ -28,9 +29,17 @@ public class MainConfiguration {
     }
 
     @Bean
-    @Qualifier("boatServiceConfiguration")
-    VehicleService boatServiceConfiguration() {
-        return new BoatService();
+    @ConditionalOnProperty(value = "animal.service.mode", havingValue = "bear", matchIfMissing = false)
+    AnimalService bearServiceConfiguration() {
+        return new BearService();
     }
+
+    @Bean
+    @ConditionalOnProperty(value = "animal.service.mode", havingValue = "rabbit", matchIfMissing = true)
+    AnimalService rabbitServiceConfiguration() {
+        return new RabbitService();
+    }
+
+
 
 }

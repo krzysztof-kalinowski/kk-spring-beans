@@ -23,7 +23,8 @@ public class KkSpringBeansApplication {
 
 
         VehicleTestService vehicleTestService = context.getBean(VehicleTestService.class);
-        vehicleTestService.testQualifierBike();
+        vehicleTestService.testQualifierBike(); //Using Qualifier
+        vehicleTestService.testConditionalOnPropertyBear(); //Using ConditionalOnProperty
 
     }
 
