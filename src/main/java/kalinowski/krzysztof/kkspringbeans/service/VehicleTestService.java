@@ -7,13 +7,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class VehicleTestService {
 
-    VehicleService vehicleService;
-    AnimalService animalService;
+    private final VehicleService vehicleService;
+    private final AnimalService animalService;
+    private final HumanService humanService;
 
     @Autowired
-    public VehicleTestService(@Qualifier("bikeServiceConfiguration") VehicleService vehicleService, AnimalService vehicleService2) {
+    public VehicleTestService(@Qualifier("bikeServiceConfiguration") VehicleService vehicleService,
+                              AnimalService vehicleService2,
+                              @Qualifier("femaleHumanService") HumanService humanService) {
         this.vehicleService = vehicleService;
         this.animalService = vehicleService2;
+        this.humanService = humanService;
     }
 
     public void testQualifierBike() {
@@ -26,5 +30,8 @@ public class VehicleTestService {
         animalService.sleep();
     }
 
+    public void anotherQualifierTestOnHuman(){
+        humanService.breath();
+    }
 
 }

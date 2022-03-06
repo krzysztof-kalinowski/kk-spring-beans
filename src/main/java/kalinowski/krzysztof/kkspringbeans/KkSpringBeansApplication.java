@@ -26,6 +26,10 @@ public class KkSpringBeansApplication {
         vehicleTestService.testQualifierBike(); //Using Qualifier
         vehicleTestService.testConditionalOnPropertyAnimal(); //Using ConditionalOnProperty
 
+        vehicleTestService.anotherQualifierTestOnHuman();
+
+
+
     }
 
 }
