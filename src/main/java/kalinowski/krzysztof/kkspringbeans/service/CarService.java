@@ -1,19 +1,17 @@
 package kalinowski.krzysztof.kkspringbeans.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class CarService implements VehicleService {
-
-    Logger logger = LoggerFactory.getLogger(CarService.class);
 
     @Override
     public void move() {
-        logger.info("Car move");
+        log.info("Car move");
     }
 
     @Override
     public void stop() {
-        logger.info("Car stop");
+        log.info("Car stop");
     }
 }

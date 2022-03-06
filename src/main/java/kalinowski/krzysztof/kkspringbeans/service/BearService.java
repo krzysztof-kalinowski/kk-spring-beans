@@ -1,19 +1,17 @@
 package kalinowski.krzysztof.kkspringbeans.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class BearService implements AnimalService {
-
-    Logger logger = LoggerFactory.getLogger(BearService.class);
 
     @Override
     public void eat() {
-        logger.info("Bear eat");
+        log.info("Bear eat");
     }
 
     @Override
     public void sleep() {
-        logger.info("Bear sleep");
+        log.info("Bear sleep");
     }
 }

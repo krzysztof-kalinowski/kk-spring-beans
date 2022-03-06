@@ -1,18 +1,17 @@
 package kalinowski.krzysztof.kkspringbeans.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 @Primary
 public class MaleHumanService implements HumanService {
 
-    Logger logger = LoggerFactory.getLogger(MaleHumanService.class);
 
     @Override
     public void breath() {
-        logger.info("Male breath");
+        log.info("Male breath");
     }
 }
